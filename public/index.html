@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 - HOSEO OTT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #FFB74D;
+            --background-color: #1A1A1A;
+            --text-color: #E0E0E0;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: 'Gowun Dodum', sans-serif; 
+            height: 100vh; width: 100%; display: flex; 
+            align-items: center; justify-content: center;
+            background: linear-gradient(rgba(26,26,26,0.7), rgba(26,26,26,0.7)),
+                url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover; background-position: center;
+            color: var(--text-color); padding: 20px;
+        }
+
+        .top-brand-logo {
+            position: absolute; top: 20px; left: 40px;
+            font-size: 2.2rem; font-weight: bold; color: var(--primary-color);
+        }
+
+        .login-wrapper { width: 100%; max-width: 400px; text-align: center; }
+        h2 { font-size: 2.8rem; margin-bottom: 30px; font-weight: bold; }
+        form { display: flex; flex-direction: column; }
+
+        input {
+            width: 100%; padding: 18px 20px; margin-bottom: 16px;
+            border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.4); color: var(--text-color); font-size: 16px;
+        }
+        input::placeholder { color: rgba(255, 255, 255, 0.5); }
+        input:focus { background: rgba(0, 0, 0, 0.6); outline: none; border-bottom: 2px solid var(--primary-color); }
+
+        button {
+            width: 100%; padding: 18px; margin-top: 24px;
+            background-color: var(--primary-color); color: white;
+            border: none; border-radius: 8px; font-size: 18px; font-weight: bold;
+            cursor: pointer; transition: background 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        button:hover { background-color: #e08e00; }
+
+        .link { margin-top: 20px; color: var(--text-color); font-size: 1rem; }
+        a { color: var(--primary-color); text-decoration: none; margin-left: 5px; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="top-brand-logo">HOSEO OTT</div>
+    <div class="login-wrapper">
+        <h2>로그인</h2>
+        <form method="POST" action="/login">
+            <input type="text" name="username" placeholder="아이디" required>
+            <input type="password" name="password" placeholder="비밀번호" required>
+            <button type="submit">로그인</button>
+            <div class="link">회원이 아니신가요? <a href="/register.html">지금 가입하세요.</a></div>
+        </form>
+    </div>
+</body>
+</html>

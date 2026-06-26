@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로필 관리 - HOSEO OTT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #FFB74D;
+            --background-color: #1A1A1A;
+            --text-color: #E0E0E0;
+            --input-bg-color: #333;
+            --input-border-color: #555;
+            --button-hover-color: #e08e00;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Gowun Dodum', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            display: flex; justify-content: center; align-items: center;
+            min-height: 100vh;
+        }
+        .profile-container {
+            background-color: rgba(0,0,0,0.85);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            margin: auto; /* Center the container horizontally */
+        }
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--input-border-color);
+            border-radius: 5px;
+            background-color: var(--input-bg-color);
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(255,183,77,0.3);
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: var(--button-hover-color);
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .back-link:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h1>프로필 관리</h1>
+        <form action="/update_profile" method="POST">
+            <div class="form-group">
+                <label for="fullname">이름</label>
+                <input type="text" id="fullname" name="fullname" value="{{USER_FULL_NAME}}" required>
+            </div>
+            <div class="form-group">
+                <label for="new_password">새 비밀번호</label>
+                <input type="password" id="new_password" name="new_password" placeholder="새 비밀번호 (변경하지 않으려면 비워두세요)">
+            </div>
+            <div class="form-group">
+                <label for="confirm_new_password">새 비밀번호 확인</label>
+                <input type="password" id="confirm_new_password" name="confirm_new_password" placeholder="새 비밀번호 다시 입력">
+            </div>
+            <div class="form-group">
+                <label for="current_password">현재 비밀번호 (변경 확인)</label>
+                <input type="password" id="current_password" name="current_password" required>
+            </div>
+            <button type="submit">변경 사항 저장</button>
+        </form>
+        <a href="/list" class="back-link">← 목록으로 돌아가기</a>
+    </div>
+</body>
+</html>

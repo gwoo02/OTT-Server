@@ -1,0 +1,6 @@
+*.md
+cert.pem
+key.pem
+data/user.txt
+data/history.dat
+data/server.log
